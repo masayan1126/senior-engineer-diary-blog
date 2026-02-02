@@ -85,6 +85,7 @@ publishedAt: 2025-01-01
 | emoji | 記事 |
 |---|---|
 | 📝 | voicevox-remotion-zundamon-youtube（未設定・デフォルト） |
+| 🎧 | asmr-and-vibe-coding |
 
 ## プロジェクト構成（参考）
 
