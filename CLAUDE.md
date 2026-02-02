@@ -34,6 +34,7 @@ publishedAt: 2025-02-02
 | category | categorySlug |
 |---|---|
 | コンテンツ制作 | content-creation |
+| 開発ツール | dev-tools |
 
 新しいカテゴリを使う場合は、日本語の `category` と英語ケバブケースの `categorySlug` をセットで指定すればよい。
 
@@ -86,6 +87,7 @@ publishedAt: 2025-01-01
 |---|---|
 | 📝 | voicevox-remotion-zundamon-youtube（未設定・デフォルト） |
 | 🎧 | asmr-and-vibe-coding |
+| 🖥️ | test-codex-app |
 
 ## プロジェクト構成（参考）
 
