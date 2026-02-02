@@ -11,7 +11,8 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.1",
-    "astro": "^5.17.1"
+    "astro": "^5.17.1",
+    "remark-mark-highlight": "^0.1.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
