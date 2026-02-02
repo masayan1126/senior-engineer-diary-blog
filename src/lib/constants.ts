@@ -1,7 +1,7 @@
 export const SITE = {
   title: 'とあるシニアエンジニアの日記',
   description: '業務/プライベートでの学び、発見、気づきなどを取り止めもなく描きます。',
-  url: 'https://masayan.github.io/senior-engineer-diary-blog',
+  url: 'https://masayan1126.github.io/senior-engineer-diary-blog',
   author: 'シニアエンジニア',
   lang: 'ja',
   ogImage: '/og-default.png',

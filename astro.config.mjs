@@ -6,7 +6,7 @@ import AstroPWA from '@vite-pwa/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://masayan.github.io',
+  site: 'https://masayan1126.github.io',
   base: '/senior-engineer-diary-blog',
   output: 'static',
   integrations: [
