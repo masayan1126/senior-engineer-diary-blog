@@ -33,9 +33,7 @@ publishedAt: 2025-02-02
 
 | category | categorySlug |
 |---|---|
-| Web開発 | web-dev |
-| AI・機械学習 | ai |
-| クラウド | cloud |
+| コンテンツ制作 | content-creation |
 
 新しいカテゴリを使う場合は、日本語の `category` と英語ケバブケースの `categorySlug` をセットで指定すればよい。
 
@@ -86,9 +84,7 @@ publishedAt: 2025-01-01
 
 | emoji | 記事 |
 |---|---|
-| 🚀 | astro-v5-tailwind-v4-blog |
-| 🤖 | claude-code-ai-development |
-| ☁️ | cloudflare-pages-jamstack |
+| 📝 | voicevox-remotion-zundamon-youtube（未設定・デフォルト） |
 
 ## プロジェクト構成（参考）
 

@@ -4,35 +4,35 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary-50: #fafafa;
-  --color-primary-100: #f4f4f5;
-  --color-primary-200: #e4e4e7;
-  --color-primary-300: #d4d4d8;
-  --color-primary-400: #a1a1aa;
-  --color-primary-500: #71717a;
-  --color-primary-600: #52525b;
-  --color-primary-700: #3f3f46;
-  --color-primary-800: #27272a;
-  --color-primary-900: #18181b;
+  --color-primary-50: #f8f8fa;
+  --color-primary-100: #f0f0f3;
+  --color-primary-200: #e0e0e5;
+  --color-primary-300: #d0d0d6;
+  --color-primary-400: #9898a2;
+  --color-primary-500: #6e6e78;
+  --color-primary-600: #505058;
+  --color-primary-700: #3d3d44;
+  --color-primary-800: #2a2a30;
+  --color-primary-900: #1c1c22;
 
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #fafafa;
-  --color-bg-tertiary: #f4f4f5;
-  --color-text-primary: #09090b;
-  --color-text-secondary: #71717a;
-  --color-text-tertiary: #a1a1aa;
-  --color-border: #e4e4e7;
+  --color-bg-primary: #f9f9fb;
+  --color-bg-secondary: #f3f3f6;
+  --color-bg-tertiary: #ededf0;
+  --color-text-primary: #2c2c32;
+  --color-text-secondary: #6e6e78;
+  --color-text-tertiary: #9898a2;
+  --color-border: #e0e0e5;
 }
 
 @layer base {
   .dark {
-    --color-bg-primary: #09090b;
-    --color-bg-secondary: #18181b;
-    --color-bg-tertiary: #27272a;
-    --color-text-primary: #fafafa;
-    --color-text-secondary: #a1a1aa;
-    --color-text-tertiary: #71717a;
-    --color-border: #27272a;
+    --color-bg-primary: #1a1a20;
+    --color-bg-secondary: #222228;
+    --color-bg-tertiary: #2c2c33;
+    --color-text-primary: #dcdce2;
+    --color-text-secondary: #9898a2;
+    --color-text-tertiary: #6e6e78;
+    --color-border: #333339;
   }
 
   html {

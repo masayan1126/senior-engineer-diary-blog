@@ -9,6 +9,7 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { label: 'ホーム', href: '/' },
+  { label: '今週', href: '/weekly' },
   { label: 'カテゴリ', href: '/categories' },
   { label: 'タグ', href: '/tags' },
   { label: 'About', href: '/about' },

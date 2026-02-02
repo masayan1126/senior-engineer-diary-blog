@@ -1,0 +1,77 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostCard from '@/components/blog/PostCard.astro';
+import Sidebar from '@/components/common/Sidebar.astro';
+import { getAllPosts } from '@/lib/content';
+
+const posts = await getAllPosts();
+---
+
+<BaseLayout title="今週の記事" description="今週公開された記事の一覧">
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="lg:flex lg:gap-8">
+      <div class="min-w-0 flex-1">
+        <h1 class="mb-8 text-3xl font-bold text-(--color-text-primary)">今週の記事</h1>
+        <p id="weekly-empty" class="text-center text-(--color-text-secondary) py-12 hidden">今週の記事はまだありません。</p>
+        <div id="weekly-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <div class="weekly-post" data-date={post.data.publishedAt.toISOString()}>
+              <PostCard post={post} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="hidden lg:block lg:w-80 lg:shrink-0">
+        <div class="sticky top-20">
+          <Sidebar />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  function filterThisWeek() {
+    const now = new Date();
+    const day = now.getDay();
+    const diffToMonday = day === 0 ? 6 : day - 1;
+
+    const monday = new Date(now);
+    monday.setDate(now.getDate() - diffToMonday);
+    monday.setHours(0, 0, 0, 0);
+
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    sunday.setHours(23, 59, 59, 999);
+
+    const items = document.querySelectorAll<HTMLElement>('.weekly-post');
+    let visibleCount = 0;
+
+    items.forEach((el) => {
+      const dateStr = el.getAttribute('data-date');
+      if (!dateStr) {
+        el.style.display = 'none';
+        return;
+      }
+      const postDate = new Date(dateStr);
+      if (postDate >= monday && postDate <= sunday) {
+        el.style.display = '';
+        visibleCount++;
+      } else {
+        el.style.display = 'none';
+      }
+    });
+
+    const emptyMsg = document.getElementById('weekly-empty');
+    const grid = document.getElementById('weekly-grid');
+    if (visibleCount === 0) {
+      emptyMsg?.classList.remove('hidden');
+      grid?.classList.add('hidden');
+    } else {
+      emptyMsg?.classList.add('hidden');
+      grid?.classList.remove('hidden');
+    }
+  }
+
+  filterThisWeek();
+</script>
