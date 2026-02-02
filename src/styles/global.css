@@ -82,6 +82,10 @@
     font-size: 0.875em;
   }
 
+}
+
+/* Highlight mark styling - placed in utilities layer to match typography plugin priority */
+@layer utilities {
   .prose mark {
     background-color: #fef08a;
     color: inherit;
