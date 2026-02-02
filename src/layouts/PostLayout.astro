@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import PostMeta from '@/components/blog/PostMeta.astro';
+import TagBadge from '@/components/blog/TagBadge.astro';
+import RelatedPosts from '@/components/blog/RelatedPosts.astro';
+import AdSenseDisplay from '@/components/ads/AdSenseDisplay.astro';
+import AdSenseMultiplex from '@/components/ads/AdSenseMultiplex.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import Sidebar from '@/components/common/Sidebar.astro';
+import { url } from '@/lib/utils';
+import type { PostEntry } from '@/lib/content';
+
+interface Props {
+  post: PostEntry;
+  relatedPosts?: PostEntry[];
+}
+
+const { post, relatedPosts = [] } = Astro.props;
+const date = post.data.publishedAt;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  ogImage={post.data.coverImage}
+  ogType="article"
+  publishedAt={date.toISOString()}
+>
+  <JsonLd
+    type="blogPosting"
+    title={post.data.title}
+    description={post.data.excerpt}
+    publishedAt={date.toISOString()}
+    image={post.data.coverImage}
+  />
+  <JsonLd
+    type="breadcrumb"
+    breadcrumbs={[
+      { name: 'ホーム', href: url('/') },
+      { name: post.data.category, href: url(`/categories/${post.data.categorySlug}`) },
+      { name: post.data.title, href: url(`/posts/${post.id}`) },
+    ]}
+  />
+
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="lg:flex lg:gap-8">
+      <!-- Main content -->
+      <article class="min-w-0 flex-1">
+        <Breadcrumb
+          items={[
+            { label: post.data.category, href: `/categories/${post.data.categorySlug}` },
+            { label: post.data.title },
+          ]}
+        />
+
+        {post.data.coverImage && (
+          <div class="mb-6 overflow-hidden rounded-xl">
+            <img
+              src={post.data.coverImage}
+              alt={post.data.title}
+              class="w-full"
+              loading="eager"
+            />
+          </div>
+        )}
+
+        <h1 class="mb-4 text-3xl font-bold leading-tight text-(--color-text-primary) md:text-4xl">
+          {post.data.title}
+        </h1>
+
+        <div class="mb-8">
+          <PostMeta
+            publishedAt={date}
+            categoryName={post.data.category}
+            categorySlug={post.data.categorySlug}
+          />
+        </div>
+
+        <AdSenseDisplay />
+
+        <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-img:rounded-lg">
+          <slot />
+        </div>
+
+        {post.data.tags.length > 0 && (
+          <div class="mt-8 flex flex-wrap gap-2">
+            {post.data.tags.map((tag) => (
+              <TagBadge name={tag} slug={tag.toLowerCase().replace(/[\s.]+/g, '-')} size="md" />
+            ))}
+          </div>
+        )}
+
+        <AdSenseMultiplex />
+
+        <RelatedPosts posts={relatedPosts} />
+      </article>
+
+      <!-- Sidebar -->
+      <div class="hidden lg:block lg:w-80 lg:shrink-0">
+        <div class="sticky top-20">
+          <Sidebar />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

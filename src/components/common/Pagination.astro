@@ -1,0 +1,51 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+}
+
+const { currentPage, totalPages, basePath } = Astro.props;
+
+function getPageHref(page: number): string {
+  if (page === 1) return basePath;
+  return `${basePath}/page/${page}`;
+}
+
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+---
+
+{totalPages > 1 && (
+  <nav class="mt-8 flex items-center justify-center gap-2" aria-label="ページネーション">
+    {currentPage > 1 && (
+      <a
+        href={getPageHref(currentPage - 1)}
+        class="rounded-lg border border-(--color-border) px-3 py-2 text-sm text-(--color-text-secondary) hover:bg-(--color-bg-tertiary) transition-colors"
+      >
+        前へ
+      </a>
+    )}
+    {pages.map((page) => (
+      <a
+        href={getPageHref(page)}
+        class:list={[
+          'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+          page === currentPage
+            ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
+            : 'border border-(--color-border) text-(--color-text-secondary) hover:bg-(--color-bg-tertiary)',
+        ]}
+        aria-current={page === currentPage ? 'page' : undefined}
+      >
+        {page}
+      </a>
+    ))}
+    {currentPage < totalPages && (
+      <a
+        href={getPageHref(currentPage + 1)}
+        class="rounded-lg border border-(--color-border) px-3 py-2 text-sm text-(--color-text-secondary) hover:bg-(--color-bg-tertiary) transition-colors"
+      >
+        次へ
+      </a>
+    )}
+  </nav>
+)}

@@ -1,0 +1,22 @@
+---
+interface Props {
+  slot?: string;
+  class?: string;
+}
+
+const { slot = 'xxxxxxxxxx', class: className = '' } = Astro.props;
+---
+
+<div class:list={['ad-container my-6 text-center', className]}>
+  <div class="mx-auto max-w-[728px] min-h-[90px] bg-(--color-bg-secondary) border border-(--color-border) rounded-lg flex items-center justify-center text-(--color-text-tertiary) text-sm">
+    <span>広告スペース</span>
+  </div>
+  <!-- Production: Replace with actual AdSense code
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-xxxxxxxx"
+    data-ad-slot={slot}
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  -->
+</div>

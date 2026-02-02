@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import { url } from '@/lib/utils';
+import { getAllCategories, getPostsByCategory } from '@/lib/content';
+
+const categories = await getAllCategories();
+const categoriesWithCount = await Promise.all(
+  categories.map(async (cat) => {
+    const posts = await getPostsByCategory(cat.slug);
+    return { ...cat, count: posts.length };
+  })
+);
+---
+
+<BaseLayout title="カテゴリ一覧" description="カテゴリ一覧ページ">
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <Breadcrumb items={[{ label: 'カテゴリ一覧' }]} />
+    <h1 class="mb-8 text-3xl font-bold text-(--color-text-primary)">カテゴリ一覧</h1>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {categoriesWithCount.map((cat) => (
+        <a
+          href={url(`/categories/${cat.slug}`)}
+          class="group rounded-xl border border-(--color-border) bg-(--color-bg-primary) p-6 transition-shadow hover:shadow-lg"
+        >
+          <h2 class="text-xl font-bold text-(--color-text-primary) group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+            {cat.name}
+          </h2>
+          {cat.description && (
+            <p class="mt-2 text-sm text-(--color-text-secondary)">{cat.description}</p>
+          )}
+          <p class="mt-3 text-sm text-(--color-text-tertiary)">{cat.count}件の記事</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

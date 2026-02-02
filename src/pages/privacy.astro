@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import { SITE } from '@/lib/constants';
+---
+
+<BaseLayout title="プライバシーポリシー" description="プライバシーポリシー">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumb items={[{ label: 'プライバシーポリシー' }]} />
+
+    <article class="prose prose-lg max-w-none dark:prose-invert">
+      <h1>プライバシーポリシー</h1>
+
+      <p>「{SITE.title}」（以下、「当サイト」）のプライバシーポリシーについて記載します。</p>
+
+      <h2>アクセス解析ツールについて</h2>
+      <p>
+        当サイトでは、Googleによるアクセス解析ツール「Google Analytics」を使用する場合があります。
+        Google Analyticsはデータの収集のためにCookieを使用しています。
+        このデータは匿名で収集されており、個人を特定するものではありません。
+      </p>
+
+      <h2>広告について</h2>
+      <p>
+        当サイトでは、Google AdSenseによる広告配信を行う場合があります。
+        Google AdSenseでは、ユーザーの興味に応じた商品やサービスの広告を表示するため、
+        Cookieを使用することがあります。
+      </p>
+
+      <h2>免責事項</h2>
+      <p>
+        当サイトに掲載する情報は、可能な限り正確な情報を掲載するよう努めていますが、
+        誤情報が入り込んだり、情報が古くなったりすることがあります。
+        必ずしも正確性を保証するものではありません。
+      </p>
+
+      <h2>お問い合わせ</h2>
+      <p>
+        当サイトへのお問い合わせは、サイト管理者までご連絡ください。
+      </p>
+    </article>
+  </div>
+</BaseLayout>

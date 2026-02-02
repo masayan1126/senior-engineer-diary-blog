@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import { SITE } from '@/lib/constants';
+---
+
+<BaseLayout title="About" description="とあるシニアエンジニアの日記について">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumb items={[{ label: 'About' }]} />
+
+    <article class="prose prose-lg max-w-none dark:prose-invert">
+      <h1>About</h1>
+
+      <div class="not-prose mb-8 flex flex-col items-center rounded-xl border border-(--color-border) bg-(--color-bg-secondary) p-8">
+        <div class="mb-4 h-24 w-24 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-4xl">
+          👨‍💻
+        </div>
+        <h2 class="text-2xl font-bold text-(--color-text-primary)">{SITE.author}</h2>
+        <p class="mt-2 text-center text-(--color-text-secondary)">シニアソフトウェアエンジニア</p>
+      </div>
+
+      <h2>このブログについて</h2>
+      <p>
+        「{SITE.title}」は、長年のソフトウェア開発経験を持つエンジニアが、日々の技術的な気づきや学びを記録するブログです。
+      </p>
+
+      <h2>発信テーマ</h2>
+      <ul>
+        <li>Web開発（フロントエンド・バックエンド）</li>
+        <li>AI・機械学習の活用</li>
+        <li>クラウドインフラ</li>
+        <li>開発プラクティス・チーム開発</li>
+        <li>キャリアと技術的成長</li>
+      </ul>
+
+      <h2>技術スタック</h2>
+      <p>このブログは以下の技術で構築されています:</p>
+      <ul>
+        <li>Astro v5 - 静的サイトジェネレーター</li>
+        <li>Tailwind CSS v4 - ユーティリティファーストCSS</li>
+        <li>Markdown (Content Collections) - コンテンツ管理</li>
+        <li>GitHub Pages - ホスティング</li>
+      </ul>
+    </article>
+  </div>
+</BaseLayout>

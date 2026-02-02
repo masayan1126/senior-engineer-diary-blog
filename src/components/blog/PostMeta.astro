@@ -1,0 +1,26 @@
+---
+import { formatDate, estimateReadingTime } from '@/lib/utils';
+import CategoryBadge from './CategoryBadge.astro';
+
+interface Props {
+  publishedAt: Date;
+  categoryName: string;
+  categorySlug: string;
+  bodyText?: string;
+}
+
+const { publishedAt, categoryName, categorySlug, bodyText } = Astro.props;
+const readingTime = bodyText ? estimateReadingTime(bodyText) : undefined;
+---
+
+<div class="flex flex-wrap items-center gap-3 text-sm text-(--color-text-secondary)">
+  <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
+  <span class="text-(--color-text-tertiary)">|</span>
+  <CategoryBadge name={categoryName} slug={categorySlug} />
+  {readingTime && (
+    <>
+      <span class="text-(--color-text-tertiary)">|</span>
+      <span>{readingTime}分で読めます</span>
+    </>
+  )}
+</div>

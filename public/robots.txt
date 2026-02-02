@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masayan.github.io/senior-engineer-diary-blog/sitemap-index.xml

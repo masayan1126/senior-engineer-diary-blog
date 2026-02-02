@@ -1,0 +1,24 @@
+---
+import { url } from '@/lib/utils';
+
+interface Props {
+  name: string;
+  slug: string;
+  size?: 'sm' | 'md';
+}
+
+const { name, slug, size = 'sm' } = Astro.props;
+const sizeClasses = size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-3 py-1 text-sm';
+---
+
+<a
+  href={url(`/categories/${slug}`)}
+  class:list={[
+    'inline-block rounded-full font-medium transition-colors',
+    'border border-(--color-border) text-(--color-text-secondary) hover:bg-(--color-bg-tertiary)',
+    'dark:border-(--color-border) dark:text-(--color-text-secondary) dark:hover:bg-(--color-bg-tertiary)',
+    sizeClasses,
+  ]}
+>
+  {name}
+</a>

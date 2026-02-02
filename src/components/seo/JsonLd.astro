@@ -1,0 +1,75 @@
+---
+import { SITE } from '@/lib/constants';
+
+interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  type: 'website' | 'blogPosting' | 'breadcrumb';
+  title?: string;
+  description?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  image?: string;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const { type, title, description, publishedAt, updatedAt, image, breadcrumbs } = Astro.props;
+
+function getJsonLd() {
+  if (type === 'website') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE.title,
+      description: SITE.description,
+      url: SITE.url,
+    };
+  }
+
+  if (type === 'blogPosting') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description: description,
+      datePublished: publishedAt,
+      dateModified: updatedAt || publishedAt,
+      image: image,
+      author: {
+        '@type': 'Person',
+        name: SITE.author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE.title,
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': new URL(Astro.url.pathname, SITE.url).toString(),
+      },
+    };
+  }
+
+  if (type === 'breadcrumb' && breadcrumbs) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.href, SITE.url).toString(),
+      })),
+    };
+  }
+
+  return null;
+}
+
+const jsonLd = getJsonLd();
+---
+
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
