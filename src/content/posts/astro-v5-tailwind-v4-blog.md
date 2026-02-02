@@ -3,6 +3,7 @@ title: "Astro v5 + Tailwind CSS v4 でブログを構築する"
 category: "Web開発"
 categorySlug: "web-dev"
 tags: ["Astro", "TypeScript", "Tailwind CSS"]
+emoji: "🚀"
 excerpt: "Astro v5とTailwind CSS v4を使って、パフォーマンスに優れたブログサイトを構築する方法を紹介します。"
 publishedAt: 2024-12-01
 ---

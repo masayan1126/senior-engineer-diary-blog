@@ -13,7 +13,7 @@ Astro v5 + Tailwind CSS v4 製のブログ。GitHub Pages にデプロイされ�
 
 ### 2. frontmatter を書く
 
-ファイル先頭に以下の形式で frontmatter を記述する。全フィールド必須（`excerpt` と `coverImage` のみ任意）。
+ファイル先頭に以下の形式で frontmatter を記述する。全フィールド必須（`emoji`、`excerpt`、`coverImage` は任意）。
 
 ```yaml
 ---
@@ -21,10 +21,13 @@ title: "記事タイトル"
 category: "カテゴリ名"
 categorySlug: "category-slug"
 tags: ["タグ1", "タグ2"]
+emoji: "🎯"
 excerpt: "記事の概要（任意）"
 publishedAt: 2025-02-02
 ---
 ```
+
+**emoji について:** 記事カードのサムネイルに表示される。既存記事と被らない絵文字を選ぶこと。未指定時は 📝 がデフォルト表示される。
 
 ### 3. 既存のカテゴリ一覧
 
@@ -39,6 +42,15 @@ publishedAt: 2025-02-02
 ### 4. 本文を書く
 
 frontmatter の `---` の後に Markdown で本文を書く。コードブロックや画像も使用可能。
+
+**記事の書き方のルール:**
+- 体裁を整えたり記事っぽく飾らないこと。日記のようにシンプルに書く
+- 以下の4点を素朴に書けばOK:
+  1. **何をしたか**
+  2. **なぜしたのか**
+  3. **どうやってしたのか**
+  4. **やってみての感想**
+- 「はじめに」「まとめ」のような定型セクションは不要
 
 ### 5. コミット & プッシュ
 
@@ -60,21 +72,23 @@ title: ""
 category: ""
 categorySlug: ""
 tags: []
+emoji: ""
 excerpt: ""
 publishedAt: 2025-01-01
 ---
 
-## はじめに
-
-
-
-## 本文
-
-
-
-## まとめ
-
+ここに本文を書く。セクション分けは必要に応じて自由に。
 ```
+
+## 使用済み絵文字一覧
+
+記事追加時はここを確認し、被らない絵文字を選ぶこと。追加後はこのリストも更新する。
+
+| emoji | 記事 |
+|---|---|
+| 🚀 | astro-v5-tailwind-v4-blog |
+| 🤖 | claude-code-ai-development |
+| ☁️ | cloudflare-pages-jamstack |
 
 ## プロジェクト構成（参考）
 

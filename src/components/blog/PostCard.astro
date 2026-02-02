@@ -25,7 +25,7 @@ const date = post.data.publishedAt;
       </div>
     ) : (
       <div class="aspect-video bg-zinc-900 dark:bg-zinc-800 flex items-center justify-center">
-        <span class="text-4xl text-white/80">📝</span>
+        <span class="text-5xl">{post.data.emoji || '📝'}</span>
       </div>
     )}
   </a>

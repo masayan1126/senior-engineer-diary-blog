@@ -3,6 +3,7 @@ title: "Claude Code でAI駆動の開発を加速する"
 category: "AI・機械学習"
 categorySlug: "ai"
 tags: ["TypeScript"]
+emoji: "🤖"
 excerpt: "Claude Codeを活用したAI駆動の開発手法を紹介します。"
 publishedAt: 2024-11-15
 ---

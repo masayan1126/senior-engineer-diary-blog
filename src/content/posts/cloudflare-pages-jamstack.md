@@ -3,6 +3,7 @@ title: "Cloudflare Pages でJamstackサイトをデプロイする"
 category: "クラウド"
 categorySlug: "cloud"
 tags: ["Astro", "TypeScript"]
+emoji: "☁️"
 excerpt: "Cloudflare PagesでJamstackサイトをデプロイする方法を解説します。"
 publishedAt: 2024-11-01
 ---
