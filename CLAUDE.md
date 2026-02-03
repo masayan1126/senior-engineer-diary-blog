@@ -35,6 +35,8 @@ publishedAt: 2025-02-02
 |---|---|
 | コンテンツ制作 | content-creation |
 | 開発ツール | dev-tools |
+| ライフハック | lifehack |
+| 日記 | diary |
 
 新しいカテゴリを使う場合は、日本語の `category` と英語ケバブケースの `categorySlug` をセットで指定すればよい。
 
@@ -89,6 +91,7 @@ publishedAt: 2025-01-01
 | 🎧 | asmr-and-vibe-coding |
 | 🖥️ | test-codex-app |
 | 🗳️ | absentee-voting-guide |
+| 📅 | feb-3-activities |
 
 ## プロジェクト構成（参考）
 
