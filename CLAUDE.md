@@ -88,6 +88,7 @@ publishedAt: 2025-01-01
 | 📝 | voicevox-remotion-zundamon-youtube（未設定・デフォルト） |
 | 🎧 | asmr-and-vibe-coding |
 | 🖥️ | test-codex-app |
+| 🗳️ | absentee-voting-guide |
 
 ## プロジェクト構成（参考）
 
