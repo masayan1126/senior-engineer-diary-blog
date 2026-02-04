@@ -5,7 +5,7 @@ categorySlug: "diary"
 tags: ["YouTube", "ずんだもん", "自動化"]
 emoji: "🎬"
 excerpt: ""
-publishedAt: 2025-02-04
+publishedAt: 2026-02-04
 ---
 
 2月2日からずんだもんのAIニュース解説動画をYouTubeにアップロードし始めた。2月4日時点、つまり3日間で登録者数が11人になった。
