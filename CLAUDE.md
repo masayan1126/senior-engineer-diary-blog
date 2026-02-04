@@ -93,6 +93,7 @@ publishedAt: 2025-01-01
 | 🗳️ | absentee-voting-guide |
 | 📅 | feb-3-activities |
 | 📈 | feb-4-activities |
+| 🔀 | claude-code-parallel-mcp-dev |
 
 ## プロジェクト構成（参考）
 
