@@ -94,6 +94,7 @@ publishedAt: 2025-01-01
 | 📅 | feb-3-activities |
 | 📈 | feb-4-activities |
 | 🔀 | claude-code-parallel-mcp-dev |
+| 🐦 | okabiyori-channel |
 
 ## プロジェクト構成（参考）
 
