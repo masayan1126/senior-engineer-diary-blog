@@ -1,5 +1,5 @@
 ---
-title: "オカメインコ好きにおすすめのYouTubeチャンネル「おか日和」"
+title: "オカメインコ好きにおすすめのYouTubeチャンネル「おかめ日和」"
 category: "ライフハック"
 categorySlug: "lifehack"
 tags: ["YouTube", "オカメインコ", "おすすめチャンネル"]
@@ -8,7 +8,7 @@ excerpt: "登録者数は少ないけど面白い、オカメインコの漫談�
 publishedAt: 2026-02-04
 ---
 
-[**おか日和**](https://youtu.be/LQDmshKI9n4?si=qN6h_TaHGWpk6PCM)というYouTubeチャンネルを見つけた。
+[**おかめ日和**](https://youtu.be/LQDmshKI9n4?si=qN6h_TaHGWpk6PCM)というYouTubeチャンネルを見つけた。
 
 ## どんなチャンネルか
 
