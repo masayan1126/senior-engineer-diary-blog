@@ -95,6 +95,7 @@ publishedAt: 2025-01-01
 | 📈 | feb-4-activities |
 | 🔀 | claude-code-parallel-mcp-dev |
 | 🐦 | okabiyori-channel |
+| 🎬 | youtube-zundamon-ai-news-progress |
 
 ## プロジェクト構成（参考）
 
