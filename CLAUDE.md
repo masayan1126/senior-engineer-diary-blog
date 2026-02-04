@@ -92,6 +92,7 @@ publishedAt: 2025-01-01
 | 🖥️ | test-codex-app |
 | 🗳️ | absentee-voting-guide |
 | 📅 | feb-3-activities |
+| 📈 | feb-4-activities |
 
 ## プロジェクト構成（参考）
 
