@@ -96,6 +96,7 @@ publishedAt: 2025-01-01
 | 🔀 | claude-code-parallel-mcp-dev |
 | 🐦 | okabiyori-channel |
 | 🎬 | youtube-zundamon-ai-news-progress |
+| 🎤 | explore-typeless-app |
 
 ## プロジェクト構成（参考）
 
