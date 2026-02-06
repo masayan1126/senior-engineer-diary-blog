@@ -97,6 +97,7 @@ publishedAt: 2025-01-01
 | 🐦 | okabiyori-channel |
 | 🎬 | youtube-zundamon-ai-news-progress |
 | 🎤 | explore-typeless-app |
+| 🎉 | youtube-1k-subscribers |
 
 ## プロジェクト構成（参考）
 
