@@ -98,6 +98,7 @@ publishedAt: 2025-01-01
 | 🎬 | youtube-zundamon-ai-news-progress |
 | 🎤 | explore-typeless-app |
 | 🎉 | youtube-1k-subscribers |
+| ✍️ | typeless-followup-review |
 
 ## プロジェクト構成（参考）
 
