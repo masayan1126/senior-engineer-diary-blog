@@ -99,6 +99,7 @@ publishedAt: 2025-01-01
 | 🎤 | explore-typeless-app |
 | 🎉 | youtube-1k-subscribers |
 | ✍️ | typeless-followup-review |
+| 💰 | validate-claude-code-roi |
 
 ## プロジェクト構成（参考）
 
