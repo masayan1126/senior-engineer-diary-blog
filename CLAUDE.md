@@ -101,6 +101,7 @@ publishedAt: 2025-01-01
 | ✍️ | typeless-followup-review |
 | 💰 | validate-claude-code-roi |
 | 💨 | review-vitamin-mist |
+| 🔄 | typeless-voice-transcription-retry |
 
 ## プロジェクト構成（参考）
 
