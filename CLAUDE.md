@@ -100,6 +100,7 @@ publishedAt: 2025-01-01
 | 🎉 | youtube-1k-subscribers |
 | ✍️ | typeless-followup-review |
 | 💰 | validate-claude-code-roi |
+| 💨 | review-vitamin-mist |
 
 ## プロジェクト構成（参考）
 
