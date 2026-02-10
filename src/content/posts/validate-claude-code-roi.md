@@ -5,7 +5,7 @@ categorySlug: "dev-tools"
 tags: ["Claude Code", "MCP", "生産性向上", "チーム開発"]
 emoji: "💰"
 excerpt: "月額100ドルの投資に見合う効果があるか、実際の開発を通じて検証している"
-publishedAt: 2025-02-09
+publishedAt: 2026-02-09
 ---
 
 ## 何をしているか
