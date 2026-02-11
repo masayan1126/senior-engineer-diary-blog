@@ -1,8 +1,8 @@
 export const SITE = {
-  title: 'とあるシニアエンジニアの日記',
+  title: 'ただのエンジニアMの日記',
   description: '業務/プライベートでの学び、発見、気づきなどを取り止めもなく描きます。',
   url: 'https://masayan1126.github.io/senior-engineer-diary-blog',
-  author: 'シニアエンジニア',
+  author: 'ただのエンジニア M.N',
   lang: 'ja',
   ogImage: '/og-default.png',
 } as const;

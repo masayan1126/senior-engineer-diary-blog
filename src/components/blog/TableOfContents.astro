@@ -1,0 +1,121 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{toc.length > 0 && (
+  <!-- Mobile: collapsible -->
+  <div class="mb-6 lg:hidden">
+    <details class="rounded-xl border border-(--color-border) bg-(--color-bg-primary)">
+      <summary class="cursor-pointer px-4 py-3 text-sm font-bold text-(--color-text-primary)">
+        目次
+      </summary>
+      <nav class="px-4 pb-4">
+        <ul class="space-y-1 text-sm">
+          {toc.map((h) => (
+            <li>
+              <a
+                href={`#${h.slug}`}
+                class:list={[
+                  'block rounded py-1 text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors',
+                  h.depth === 3 ? 'pl-4' : 'pl-0',
+                ]}
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </details>
+  </div>
+
+  <!-- Desktop: sidebar -->
+  <div class="hidden lg:block">
+    <div class="rounded-xl border border-(--color-border) bg-(--color-bg-primary) p-6">
+      <h3 class="mb-4 text-lg font-bold text-(--color-text-primary)">目次</h3>
+      <nav>
+        <ul class="space-y-1 text-sm" id="toc-list">
+          {toc.map((h) => (
+            <li>
+              <a
+                href={`#${h.slug}`}
+                data-toc-link={h.slug}
+                class:list={[
+                  'block rounded py-1 text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors',
+                  h.depth === 3 ? 'pl-4' : 'pl-0',
+                ]}
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+)}
+
+<script>
+  function initToc() {
+    const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]');
+    if (links.length === 0) return;
+
+    const slugs = Array.from(links).map((l) => l.dataset.tocLink!);
+    const headings = slugs
+      .map((slug) => document.getElementById(slug))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (headings.length === 0) return;
+
+    const activeClass = 'text-(--color-text-primary)';
+    const inactiveClass = 'text-(--color-text-secondary)';
+
+    let current = slugs[0];
+
+    function highlight(slug: string) {
+      if (slug === current) return;
+      current = slug;
+      links.forEach((link) => {
+        const isActive = link.dataset.tocLink === slug;
+        link.classList.toggle('font-semibold', isActive);
+        // Swap color classes
+        if (isActive) {
+          link.classList.remove(inactiveClass);
+          link.classList.add(activeClass);
+        } else {
+          link.classList.remove(activeClass);
+          link.classList.add(inactiveClass);
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            highlight(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+
+    headings.forEach((h) => observer.observe(h));
+  }
+
+  // Support View Transitions
+  initToc();
+  document.addEventListener('astro:after-swap', initToc);
+</script>

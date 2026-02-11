@@ -20,9 +20,9 @@ const relatedPosts = allPosts
 
 const seriesNav = await getSeriesNavigation(post);
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
-<PostLayout post={post} relatedPosts={relatedPosts} seriesNav={seriesNav}>
+<PostLayout post={post} relatedPosts={relatedPosts} seriesNav={seriesNav} headings={headings}>
   <Content />
 </PostLayout>
