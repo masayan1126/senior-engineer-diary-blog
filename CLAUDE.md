@@ -92,7 +92,7 @@ publishedAt: 2025-01-01
 | series (slug) | シリーズ名 | 記事数 |
 |---|---|---|
 | typeless | Typeless音声入力シリーズ | 3 |
-| zundamon-youtube | ずんだもん解説動画シリーズ | 3 |
+| zundamon-youtube | ずんだもん解説動画シリーズ | 4 |
 
 ## 使用済み絵文字一覧
 
@@ -115,6 +115,7 @@ publishedAt: 2025-01-01
 | 💰 | validate-claude-code-roi |
 | 💨 | review-vitamin-mist |
 | 🔄 | typeless-voice-transcription-retry |
+| 📊 | youtube-channel-growth-30-subscribers |
 
 ## 静的アセットのパス
 
