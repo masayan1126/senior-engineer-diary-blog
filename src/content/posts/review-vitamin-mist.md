@@ -17,6 +17,8 @@ publishedAt: 2026-02-10
 2. **トロピカルフルーツテイスト（Multi Vitamin）**
    7種類のビタミンが摂取できる。
 
+![IN MIST サプリメント 2種類](/senior-engineer-diary-blog/images/in-mist.jpg)
+
 それぞれ約50回分で、ボタン1プッシュが1回分の目安。1日2回以上の使用がおすすめとのこと。
 
 ## 試してみた感想
