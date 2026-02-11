@@ -87,7 +87,7 @@ export async function getPostsBySeries(seriesSlug: string): Promise<PostEntry[]>
   const posts = await getCollection('posts');
   return posts
     .filter((p) => p.data.series === seriesSlug)
-    .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+    .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 }
 
 export async function getSeriesNavigation(post: PostEntry): Promise<{

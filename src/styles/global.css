@@ -56,6 +56,10 @@
 
 /* Prose styling for article content */
 @layer components {
+  .prose :is(h1, h2, h3, h4, h5, h6) {
+    scroll-margin-top: 5rem;
+  }
+
   .prose pre {
     border-radius: 0.5rem;
   }
