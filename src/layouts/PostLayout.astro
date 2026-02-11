@@ -23,7 +23,7 @@ const date = post.data.publishedAt;
 <BaseLayout
   title={post.data.title}
   description={post.data.excerpt}
-  ogImage={post.data.coverImage}
+  ogImage={post.data.coverImage || `/og/${post.id}.png`}
   ogType="article"
   publishedAt={date.toISOString()}
 >
