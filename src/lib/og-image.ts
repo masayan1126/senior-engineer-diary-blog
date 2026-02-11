@@ -82,7 +82,7 @@ export async function generateOgImage(title: string, emoji: string): Promise<Buf
                 {
                   type: 'div',
                   props: {
-                    style: { fontSize: '72px', lineHeight: '1' },
+                    style: { fontSize: '96px', lineHeight: '1' },
                     children: emoji,
                   },
                 },
@@ -90,7 +90,7 @@ export async function generateOgImage(title: string, emoji: string): Promise<Buf
                   type: 'div',
                   props: {
                     style: {
-                      fontSize: '48px',
+                      fontSize: '56px',
                       color: '#f8fafc',
                       lineHeight: '1.4',
                       letterSpacing: '-0.02em',
