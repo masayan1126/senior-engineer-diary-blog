@@ -17,7 +17,7 @@ const {
   publishedAt,
 } = Astro.props;
 
-const ogImageURL = image.startsWith('http') ? image : new URL(image, SITE.url).toString();
+const ogImageURL = image.startsWith('http') ? image : `${SITE.url}${image.startsWith('/') ? image : '/' + image}`;
 const pageURL = new URL(Astro.url.pathname, SITE.url).toString();
 ---
 
