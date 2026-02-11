@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import PostLayout from '@/layouts/PostLayout.astro';
-import { getAllPosts } from '@/lib/content';
+import { getAllPosts, getSeriesNavigation } from '@/lib/content';
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -18,9 +18,11 @@ const relatedPosts = allPosts
   .filter((p) => p.id !== post.id && p.data.categorySlug === post.data.categorySlug)
   .slice(0, 3);
 
+const seriesNav = await getSeriesNavigation(post);
+
 const { Content } = await render(post);
 ---
 
-<PostLayout post={post} relatedPosts={relatedPosts}>
+<PostLayout post={post} relatedPosts={relatedPosts} seriesNav={seriesNav}>
   <Content />
 </PostLayout>

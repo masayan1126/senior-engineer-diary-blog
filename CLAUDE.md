@@ -23,6 +23,8 @@ categorySlug: "category-slug"
 tags: ["タグ1", "タグ2"]
 emoji: "🎯"
 excerpt: "記事の概要（任意）"
+series: "series-slug"          # シリーズに属する場合（任意）
+seriesOrder: 1                 # シリーズ内の順番（任意）
 publishedAt: 2025-02-02
 ---
 ```
@@ -75,11 +77,22 @@ categorySlug: ""
 tags: []
 emoji: ""
 excerpt: ""
+series: ""
+seriesOrder: 1
 publishedAt: 2025-01-01
 ---
 
 ここに本文を書く。セクション分けは必要に応じて自由に。
 ```
+
+**シリーズについて:** 既存シリーズに属する記事を書く場合、`series` にシリーズのスラッグ、`seriesOrder` にシリーズ内の通し番号を指定する。シリーズに属さない場合はこれらのフィールドを省略してよい。新しいシリーズを追加する場合は `src/lib/constants.ts` の `SERIES_MAP` にエントリを追加し、下記の一覧も更新する。
+
+## 既存シリーズ一覧
+
+| series (slug) | シリーズ名 | 記事数 |
+|---|---|---|
+| typeless | Typeless音声入力シリーズ | 3 |
+| zundamon-youtube | ずんだもん解説動画シリーズ | 3 |
 
 ## 使用済み絵文字一覧
 
@@ -102,6 +115,18 @@ publishedAt: 2025-01-01
 | 💰 | validate-claude-code-roi |
 | 💨 | review-vitamin-mist |
 | 🔄 | typeless-voice-transcription-retry |
+
+## 静的アセットのパス
+
+`public/` 配下のファイルを参照する際は `import.meta.env.BASE_URL` を使うこと。`base` が `/senior-engineer-diary-blog` に設定されているため、直接 `/filename` と書くとパスが解決できない。
+
+```astro
+<!-- ✅ 正しい -->
+<img src={`${import.meta.env.BASE_URL}/favicon.svg`} />
+
+<!-- ❌ 誤り（baseが含まれない） -->
+<img src="/favicon.svg" />
+```
 
 ## プロジェクト構成（参考）
 

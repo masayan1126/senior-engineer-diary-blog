@@ -5,6 +5,8 @@ categorySlug: "diary"
 tags: ["YouTube", "ずんだもん", "自動化"]
 emoji: "🎬"
 excerpt: ""
+series: "zundamon-youtube"
+seriesOrder: 2
 publishedAt: 2026-02-04
 ---
 

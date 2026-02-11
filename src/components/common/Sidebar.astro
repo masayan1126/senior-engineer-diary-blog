@@ -1,19 +1,18 @@
 ---
 import { SITE } from '@/lib/constants';
 import { url } from '@/lib/utils';
-import { getAllCategories } from '@/lib/content';
+import { getAllCategories, getAllSeries } from '@/lib/content';
 import AdSenseDisplay from '@/components/ads/AdSenseDisplay.astro';
 
 const categories = await getAllCategories();
+const seriesList = getAllSeries();
 ---
 
 <aside class="space-y-6">
   <!-- Profile -->
   <div class="rounded-xl border border-(--color-border) bg-(--color-bg-primary) p-6">
     <div class="flex flex-col items-center text-center">
-      <div class="mb-3 h-20 w-20 rounded-full bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-3xl">
-        👨‍💻
-      </div>
+      <img src={`${import.meta.env.BASE_URL}/favicon.svg`} alt={SITE.author} class="mb-3 h-20 w-20 rounded-full object-cover" />
       <h3 class="text-lg font-bold text-(--color-text-primary)">{SITE.author}</h3>
       <p class="mt-2 text-sm text-(--color-text-secondary)">
         Web開発・AI・クラウドに関する技術情報を発信しています。
@@ -32,6 +31,26 @@ const categories = await getAllCategories();
             class="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-(--color-text-secondary) hover:bg-(--color-bg-tertiary) hover:text-(--color-text-primary) transition-colors"
           >
             <span>{cat.name}</span>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Series -->
+  <div class="rounded-xl border border-(--color-border) bg-(--color-bg-primary) p-6">
+    <h3 class="mb-4 text-lg font-bold text-(--color-text-primary)">シリーズ</h3>
+    <ul class="space-y-2">
+      {seriesList.map((s) => (
+        <li>
+          <a
+            href={url(`/series/${s.slug}`)}
+            class="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-(--color-text-secondary) hover:bg-(--color-bg-tertiary) hover:text-(--color-text-primary) transition-colors"
+          >
+            <span>{s.name}</span>
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
             </svg>

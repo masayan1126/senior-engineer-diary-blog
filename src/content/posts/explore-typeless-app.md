@@ -5,6 +5,8 @@ categorySlug: "dev-tools"
 tags: ["音声入力", "Typeless", "生産性"]
 emoji: "🎤"
 excerpt: "音声入力アプリTypelessを見つけたので試してみる"
+series: "typeless"
+seriesOrder: 1
 publishedAt: 2026-02-05
 ---
 

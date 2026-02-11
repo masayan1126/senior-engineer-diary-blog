@@ -1,0 +1,68 @@
+---
+import { url } from '@/lib/utils';
+import type { PostEntry } from '@/lib/content';
+import type { Series } from '@/lib/types';
+
+interface Props {
+  series: Series;
+  posts: PostEntry[];
+  currentIndex: number;
+  prev: PostEntry | null;
+  next: PostEntry | null;
+}
+
+const { series, posts, currentIndex, prev, next } = Astro.props;
+---
+
+<div class="mt-10 rounded-xl border border-(--color-border) bg-(--color-bg-primary) p-6">
+  <h3 class="mb-4 text-lg font-bold text-(--color-text-primary)">
+    <a href={url(`/series/${series.slug}`)} class="hover:underline">{series.name}</a>
+  </h3>
+
+  <ol class="mb-4 space-y-2">
+    {posts.map((post, i) => (
+      <li class="flex items-start gap-2 text-sm">
+        <span class={`shrink-0 font-mono ${i === currentIndex ? 'font-bold text-(--color-text-primary)' : 'text-(--color-text-tertiary)'}`}>
+          {i + 1}.
+        </span>
+        {i === currentIndex ? (
+          <span class="font-bold text-(--color-text-primary)">{post.data.title}</span>
+        ) : (
+          <a
+            href={url(`/posts/${post.id}`)}
+            class="text-(--color-text-secondary) hover:text-(--color-text-primary) hover:underline transition-colors"
+          >
+            {post.data.title}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+
+  {(prev || next) && (
+    <div class="flex items-center justify-between border-t border-(--color-border) pt-4">
+      {prev ? (
+        <a
+          href={url(`/posts/${prev.id}`)}
+          class="flex items-center gap-1 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          前の記事
+        </a>
+      ) : <span />}
+      {next ? (
+        <a
+          href={url(`/posts/${next.id}`)}
+          class="flex items-center gap-1 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
+        >
+          次の記事
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      ) : <span />}
+    </div>
+  )}
+</div>

@@ -5,6 +5,8 @@ categorySlug: "dev-tools"
 tags: ["音声入力", "Typeless", "生産性"]
 emoji: "✍️"
 excerpt: "Typelessを使い込んでみて感じた、他の音声入力アプリとの違い"
+series: "typeless"
+seriesOrder: 2
 publishedAt: 2026-02-07
 ---
 

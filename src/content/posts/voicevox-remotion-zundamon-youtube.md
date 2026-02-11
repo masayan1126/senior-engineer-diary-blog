@@ -4,6 +4,8 @@ category: "コンテンツ制作"
 categorySlug: "content-creation"
 tags: ["VOICEVOX", "Remotion", "YouTube", "動画制作"]
 excerpt: "VOICEVOXとRemotionを組み合わせて、ずんだもんが解説するYouTube動画を効率的に量産する方法をまとめます。"
+series: "zundamon-youtube"
+seriesOrder: 1
 publishedAt: 2026-02-02
 ---
 

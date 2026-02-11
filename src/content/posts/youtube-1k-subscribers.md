@@ -5,6 +5,8 @@ categorySlug: "content-creation"
 tags: ["YouTube", "登録者1000人", "収益化"]
 emoji: "🎉"
 excerpt: "メインのYouTubeチャンネルの登録者数が1000人を超えた経過報告"
+series: "zundamon-youtube"
+seriesOrder: 3
 publishedAt: 2026-02-06
 ---
 

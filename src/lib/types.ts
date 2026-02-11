@@ -8,3 +8,9 @@ export type Tag = {
   name: string;
   slug: string;
 };
+
+export type Series = {
+  name: string;
+  slug: string;
+  description?: string;
+};

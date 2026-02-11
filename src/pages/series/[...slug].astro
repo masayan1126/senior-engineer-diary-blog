@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostList from '@/components/blog/PostList.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
+import Pagination from '@/components/common/Pagination.astro';
+import Sidebar from '@/components/common/Sidebar.astro';
+import { getAllSeries, getPostsBySeries, paginatePosts } from '@/lib/content';
+import { PER_PAGE } from '@/lib/constants';
+import { url } from '@/lib/utils';
+import type { Series } from '@/lib/types';
+
+export async function getStaticPaths() {
+  const seriesList = getAllSeries();
+  const paths = [];
+
+  for (const s of seriesList) {
+    const posts = await getPostsBySeries(s.slug);
+    const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+
+    paths.push({
+      params: { slug: s.slug },
+      props: { series: s, currentPage: 1 },
+    });
+
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({
+        params: { slug: `${s.slug}/page/${page}` },
+        props: { series: s, currentPage: page },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { series, currentPage } = Astro.props;
+const allPosts = await getPostsBySeries(series.slug);
+const { posts, totalPages } = paginatePosts(allPosts, currentPage);
+---
+
+<BaseLayout title={`${series.name}`} description={series.description || `${series.name}の記事一覧`}>
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="lg:flex lg:gap-8">
+      <div class="min-w-0 flex-1">
+        <Breadcrumb
+          items={[
+            { label: 'シリーズ一覧', href: '/series' },
+            { label: series.name },
+          ]}
+        />
+        <h1 class="mb-2 text-3xl font-bold text-(--color-text-primary)">{series.name}</h1>
+        {series.description && (
+          <p class="mb-8 text-(--color-text-secondary)">{series.description}</p>
+        )}
+        <PostList posts={posts} />
+        <Pagination currentPage={currentPage} totalPages={totalPages} basePath={url(`/series/${series.slug}`)} />
+      </div>
+      <div class="hidden lg:block lg:w-80 lg:shrink-0">
+        <div class="sticky top-20">
+          <Sidebar />
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

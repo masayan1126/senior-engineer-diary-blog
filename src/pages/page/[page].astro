@@ -5,23 +5,31 @@ import Pagination from '@/components/common/Pagination.astro';
 import Sidebar from '@/components/common/Sidebar.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import { getAllPosts, paginatePosts } from '@/lib/content';
+import { PER_PAGE } from '@/lib/constants';
 import { url } from '@/lib/utils';
 
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+  }));
+}
+
+const currentPage = Number(Astro.params.page);
 const allPosts = await getAllPosts();
-const { posts, totalPages } = paginatePosts(allPosts, 1);
+const { posts, totalPages } = paginatePosts(allPosts, currentPage);
 ---
 
-<BaseLayout>
+<BaseLayout title={`最新の記事 - ページ ${currentPage}`}>
   <JsonLd type="website" />
   <div class="mx-auto max-w-6xl px-4 py-8">
     <div class="lg:flex lg:gap-8">
       <div class="min-w-0 flex-1">
         <h1 class="mb-8 text-3xl font-bold text-(--color-text-primary)">最新の記事</h1>
-        <div class="mb-8 flex justify-center">
-          <img src={`${import.meta.env.BASE_URL}/og-default.png`} alt="ペンギンエンジニア" class="w-full rounded-xl" />
-        </div>
         <PostList posts={posts} />
-        <Pagination currentPage={1} totalPages={totalPages} basePath={url('')} />
+        <Pagination currentPage={currentPage} totalPages={totalPages} basePath={url('')} />
       </div>
       <div class="hidden lg:block lg:w-80 lg:shrink-0">
         <div class="sticky top-20">

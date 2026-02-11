@@ -5,6 +5,8 @@ categorySlug: "dev-tools"
 tags: ["音声入力", "Typeless", "生産性"]
 emoji: "🔄"
 excerpt: "Typelessで文字起こしエラーが起きてもデータが残っていてリトライできることに気づいた"
+series: "typeless"
+seriesOrder: 3
 publishedAt: 2026-02-10
 ---
 

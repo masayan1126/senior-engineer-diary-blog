@@ -4,19 +4,30 @@ import Breadcrumb from '@/components/common/Breadcrumb.astro';
 import PostMeta from '@/components/blog/PostMeta.astro';
 import TagBadge from '@/components/blog/TagBadge.astro';
 import RelatedPosts from '@/components/blog/RelatedPosts.astro';
+import SeriesNav from '@/components/blog/SeriesNav.astro';
 import AdSenseDisplay from '@/components/ads/AdSenseDisplay.astro';
 import AdSenseMultiplex from '@/components/ads/AdSenseMultiplex.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import Sidebar from '@/components/common/Sidebar.astro';
 import { url } from '@/lib/utils';
 import type { PostEntry } from '@/lib/content';
+import type { Series } from '@/lib/types';
+
+interface SeriesNavData {
+  series: Series;
+  posts: PostEntry[];
+  currentIndex: number;
+  prev: PostEntry | null;
+  next: PostEntry | null;
+}
 
 interface Props {
   post: PostEntry;
   relatedPosts?: PostEntry[];
+  seriesNav?: SeriesNavData | null;
 }
 
-const { post, relatedPosts = [] } = Astro.props;
+const { post, relatedPosts = [], seriesNav } = Astro.props;
 const date = post.data.publishedAt;
 ---
 
@@ -82,6 +93,16 @@ const date = post.data.publishedAt;
         <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-img:rounded-lg">
           <slot />
         </div>
+
+        {seriesNav && (
+          <SeriesNav
+            series={seriesNav.series}
+            posts={seriesNav.posts}
+            currentIndex={seriesNav.currentIndex}
+            prev={seriesNav.prev}
+            next={seriesNav.next}
+          />
+        )}
 
         {post.data.tags.length > 0 && (
           <div class="mt-8 flex flex-wrap gap-2">
