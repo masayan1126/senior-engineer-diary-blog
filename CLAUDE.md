@@ -116,6 +116,7 @@ publishedAt: 2025-01-01
 | 💨 | review-vitamin-mist |
 | 🔄 | typeless-voice-transcription-retry |
 | 📊 | youtube-channel-growth-30-subscribers |
+| 🎥 | youtube-video-upload |
 
 ## 静的アセットのパス
 
