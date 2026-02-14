@@ -18,7 +18,7 @@ AI関連情報やテックブログのRSS情報収集に使っていたn8nをや
 
 ### 2. ウェブ上の情報収集
 
-Claude Codeのエージェント機能（Agentic Workflow）を使ってAI情報を収集している。こちらもXの情報と同様に、GitHub Actions経由でDiscordへ通知する流れ。
+Claude Codeのエージェントチームを使って複数エージェントに複数の観点やテーマで配列でAI情報を収集している。こちらもXの情報と同様に、GitHub Actions経由でDiscordへ通知する流れ。
 
 ## なぜ切り替えたか
 
