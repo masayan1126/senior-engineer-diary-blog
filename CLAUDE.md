@@ -123,6 +123,7 @@ publishedAt: 2026-01-01
 | 🎥 | youtube-video-upload |
 | 🪒 | test-steamed-towel-shaving |
 | 📡 | ai-news-collection-setup |
+| ♨️ | winter-bath-nigoriyu |
 
 ## 静的アセットのパス
 
