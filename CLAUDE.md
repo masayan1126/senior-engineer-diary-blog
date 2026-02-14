@@ -117,6 +117,7 @@ publishedAt: 2025-01-01
 | 🔄 | typeless-voice-transcription-retry |
 | 📊 | youtube-channel-growth-30-subscribers |
 | 🎥 | youtube-video-upload |
+| 🪒 | test-steamed-towel-shaving |
 
 ## 静的アセットのパス
 
