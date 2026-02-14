@@ -122,6 +122,7 @@ publishedAt: 2026-01-01
 | 📊 | youtube-channel-growth-30-subscribers |
 | 🎥 | youtube-video-upload |
 | 🪒 | test-steamed-towel-shaving |
+| 📡 | ai-news-collection-setup |
 
 ## 静的アセットのパス
 
