@@ -124,6 +124,7 @@ publishedAt: 2026-01-01
 | 🪒 | test-steamed-towel-shaving |
 | 📡 | ai-news-collection-setup |
 | ♨️ | winter-bath-nigoriyu |
+| 🔍 | debug-mcp-connector-logs |
 
 ## 静的アセットのパス
 
