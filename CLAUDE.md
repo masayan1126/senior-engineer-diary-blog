@@ -125,6 +125,7 @@ publishedAt: 2026-01-01
 | 📡 | ai-news-collection-setup |
 | ♨️ | winter-bath-nigoriyu |
 | 🔍 | debug-mcp-connector-logs |
+| 🧩 | blog-research-workflow |
 
 ## 静的アセットのパス
 
