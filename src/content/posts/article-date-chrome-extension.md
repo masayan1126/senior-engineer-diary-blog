@@ -14,6 +14,8 @@ publishedAt: 2026-02-19
 
 これは以前書いた[AI情報収集をClaude Code + GitHub Actionsの構成に切り替えた記事](/senior-engineer-diary-blog/posts/ai-news-collection-setup)の続編にあたる。
 
+Chromeウェブストアで公開している： [Article Date Detector](https://chromewebstore.google.com/detail/article-date-detector/kcibimkobhbikanlidohhnahodekmaej?authuser=0&hl=ja)
+
 ## なぜ作ったか
 
 Claude の Web 検索の精度自体は Opus 4.6 からかなり上がったが、直近のニュースを収集してもらう際に、意外と古い情報や記事が混ざってくることが引き続きあった。収集された記事を開いて途中まで読んだ後に「結局これ1週間前の記事だったのか」と気づく、ということが何度かあり、無駄な時間がもったいなかった。
