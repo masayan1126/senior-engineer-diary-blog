@@ -126,6 +126,7 @@ publishedAt: 2026-01-01
 | ♨️ | winter-bath-nigoriyu |
 | 🔍 | debug-mcp-connector-logs |
 | 🧩 | blog-research-workflow |
+| 🌐 | article-date-chrome-extension |
 
 ## 静的アセットのパス
 
