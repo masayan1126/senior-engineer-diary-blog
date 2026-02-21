@@ -127,6 +127,7 @@ publishedAt: 2026-01-01
 | 🔍 | debug-mcp-connector-logs |
 | 🧩 | blog-research-workflow |
 | 🌐 | article-date-chrome-extension |
+| 💬 | youtube-comment-replies |
 
 ## 静的アセットのパス
 
