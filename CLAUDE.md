@@ -129,6 +129,7 @@ publishedAt: 2026-01-01
 | 🌐 | article-date-chrome-extension |
 | 💬 | youtube-comment-replies |
 | 📋 | career-management-agent-skills |
+| 💊 | allergy-medication-fexofenadine |
 
 ## 静的アセットのパス
 
