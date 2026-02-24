@@ -128,6 +128,7 @@ publishedAt: 2026-01-01
 | 🧩 | blog-research-workflow |
 | 🌐 | article-date-chrome-extension |
 | 💬 | youtube-comment-replies |
+| 📋 | career-management-agent-skills |
 
 ## 静的アセットのパス
 
