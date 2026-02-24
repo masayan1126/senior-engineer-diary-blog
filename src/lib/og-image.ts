@@ -1,10 +1,12 @@
 import satori from 'satori';
 import sharp from 'sharp';
 import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { SITE } from './constants';
 import { getAllPosts } from './content';
 
 let fontCache: ArrayBuffer | null = null;
+let characterImageCache: string | null = null;
 
 async function getFont(): Promise<ArrayBuffer> {
   if (fontCache) return fontCache;
@@ -52,8 +54,23 @@ async function getFont(): Promise<ArrayBuffer> {
   return fontCache;
 }
 
-export async function generateOgImage(title: string, emoji: string): Promise<Buffer> {
+async function getCharacterImage(): Promise<string> {
+  if (characterImageCache) return characterImageCache;
+
+  const imagePath = join(process.cwd(), 'public/icons/icon-192x192.png');
+  const imageBuffer = await readFile(imagePath);
+  const base64 = imageBuffer.toString('base64');
+  characterImageCache = `data:image/png;base64,${base64}`;
+  return characterImageCache;
+}
+
+export async function generateOgImage(
+  title: string,
+  emoji: string,
+  category?: string,
+): Promise<Buffer> {
   const fontData = await getFont();
+  const characterImage = await getCharacterImage();
 
   const svg = await satori(
     {
@@ -63,66 +80,140 @@ export async function generateOgImage(title: string, emoji: string): Promise<Buf
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '60px 80px',
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+          position: 'relative',
+          background: '#111111',
           fontFamily: 'OgFont',
         },
         children: [
+          // Left yellow accent bar
+          {
+            type: 'div',
+            props: {
+              style: {
+                position: 'absolute',
+                left: '0',
+                top: '0',
+                width: '6px',
+                height: '100%',
+                background: '#fbbf24',
+              },
+            },
+          },
+          // Text content area
           {
             type: 'div',
             props: {
               style: {
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '24px',
+                justifyContent: 'space-between',
+                flex: 1,
+                padding: '56px 60px 50px 56px',
               },
               children: [
-                {
-                  type: 'div',
-                  props: {
-                    style: { fontSize: '96px', lineHeight: '1' },
-                    children: emoji,
-                  },
-                },
+                // Top: Emoji + Category
                 {
                   type: 'div',
                   props: {
                     style: {
-                      fontSize: '56px',
-                      color: '#f8fafc',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '16px',
+                    },
+                    children: [
+                      {
+                        type: 'div',
+                        props: {
+                          style: { fontSize: '40px', lineHeight: '1' },
+                          children: emoji,
+                        },
+                      },
+                      ...(category
+                        ? [
+                            {
+                              type: 'div',
+                              props: {
+                                style: {
+                                  fontSize: '20px',
+                                  color: '#fbbf24',
+                                  border: '1.5px solid #fbbf24',
+                                  borderRadius: '6px',
+                                  padding: '4px 14px',
+                                },
+                                children: category,
+                              },
+                            },
+                          ]
+                        : []),
+                    ],
+                  },
+                },
+                // Title
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      fontSize: '52px',
+                      color: '#ffffff',
                       lineHeight: '1.4',
-                      letterSpacing: '-0.02em',
+                      letterSpacing: '-0.01em',
+                      paddingRight: '180px',
                       overflow: 'hidden',
-                      textOverflow: 'ellipsis',
                     },
                     children: title,
+                  },
+                },
+                // Bottom: Site name
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                    },
+                    children: [
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            width: '40px',
+                            height: '2px',
+                            background: '#fbbf24',
+                          },
+                        },
+                      },
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            fontSize: '20px',
+                            color: '#888888',
+                          },
+                          children: SITE.title,
+                        },
+                      },
+                    ],
                   },
                 },
               ],
             },
           },
+          // Character image (bottom-right)
           {
-            type: 'div',
+            type: 'img',
             props: {
+              src: characterImage,
+              width: 150,
+              height: 150,
               style: {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
+                position: 'absolute',
+                bottom: '36px',
+                right: '44px',
+                width: '150px',
+                height: '150px',
+                borderRadius: '16px',
               },
-              children: [
-                {
-                  type: 'div',
-                  props: {
-                    style: {
-                      fontSize: '24px',
-                      color: '#94a3b8',
-                    },
-                    children: SITE.title,
-                  },
-                },
-              ],
             },
           },
         ],

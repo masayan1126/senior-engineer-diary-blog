@@ -6,13 +6,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { title: post.data.title, emoji: post.data.emoji || '📝' },
+    props: {
+      title: post.data.title,
+      emoji: post.data.emoji || '📝',
+      category: post.data.category,
+    },
   }));
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const { title, emoji } = props as { title: string; emoji: string };
-  const png = await generateOgImage(title, emoji);
+  const { title, emoji, category } = props as { title: string; emoji: string; category: string };
+  const png = await generateOgImage(title, emoji, category);
   return new Response(png, {
     headers: { 'Content-Type': 'image/png' },
   });
