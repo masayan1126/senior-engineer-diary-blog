@@ -137,6 +137,7 @@ publishedAt: 2026-01-01
 | 💬 | youtube-comment-replies |
 | 📋 | career-management-agent-skills |
 | 💊 | allergy-medication-fexofenadine |
+| 🏷️ | explore-claude-code-workflow |
 
 ## 静的アセットのパス
 
