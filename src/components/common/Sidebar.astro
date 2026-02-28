@@ -2,7 +2,6 @@
 import { SITE } from '@/lib/constants';
 import { url } from '@/lib/utils';
 import { getAllCategories, getAllSeries } from '@/lib/content';
-import AdSenseDisplay from '@/components/ads/AdSenseDisplay.astro';
 
 const categories = await getAllCategories();
 const seriesList = getAllSeries();
@@ -59,7 +58,4 @@ const seriesList = getAllSeries();
       ))}
     </ul>
   </div>
-
-  <!-- Ad Space -->
-  <AdSenseDisplay />
 </aside>

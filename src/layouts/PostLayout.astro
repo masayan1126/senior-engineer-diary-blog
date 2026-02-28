@@ -5,8 +5,6 @@ import PostMeta from '@/components/blog/PostMeta.astro';
 import TagBadge from '@/components/blog/TagBadge.astro';
 import RelatedPosts from '@/components/blog/RelatedPosts.astro';
 import SeriesNav from '@/components/blog/SeriesNav.astro';
-import AdSenseDisplay from '@/components/ads/AdSenseDisplay.astro';
-import AdSenseMultiplex from '@/components/ads/AdSenseMultiplex.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import Sidebar from '@/components/common/Sidebar.astro';
 import TableOfContents from '@/components/blog/TableOfContents.astro';
@@ -103,8 +101,6 @@ const date = post.data.publishedAt;
 
         <TableOfContents headings={headings} />
 
-        <AdSenseDisplay />
-
         <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-zinc-900 dark:prose-a:text-zinc-100 prose-a:underline prose-img:rounded-lg">
           <slot />
         </div>
@@ -126,8 +122,6 @@ const date = post.data.publishedAt;
             ))}
           </div>
         )}
-
-        <AdSenseMultiplex />
 
         <RelatedPosts posts={relatedPosts} />
       </article>
