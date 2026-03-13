@@ -32,3 +32,4 @@
 | 💊 | allergy-medication-fexofenadine |
 | ✏️ | cursor-markdown-preview-edit |
 | 🧪 | ai-news-video-testing |
+| 📐 | spec-driven-development-with-claude |
