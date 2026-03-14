@@ -25,7 +25,7 @@ const date = post.data.publishedAt;
         />
       </div>
     ) : (
-      <div class="aspect-video bg-zinc-900 dark:bg-zinc-800 flex items-center justify-center" transition:name={`post-image-${post.id}`}>
+      <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center" transition:name={`post-image-${post.id}`}>
         <span class="text-5xl">{post.data.emoji || '📝'}</span>
       </div>
     )}
