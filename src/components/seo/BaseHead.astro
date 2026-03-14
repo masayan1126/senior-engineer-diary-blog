@@ -21,6 +21,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, SITE.url).toString
 <meta name="generator" content={Astro.generator} />
 
 <!-- Favicon -->
+<link rel="icon" href={url('/favicon.ico')} sizes="32x32" />
 <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
 
 <!-- RSS -->

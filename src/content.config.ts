@@ -10,6 +10,8 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     emoji: z.string().optional(),
     excerpt: z.string().optional(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
     publishedAt: z.coerce.date(),
     coverImage: z.string().optional(),
     series: z.string().optional(),
