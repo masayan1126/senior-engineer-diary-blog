@@ -34,3 +34,4 @@
 | 🧪 | ai-news-video-testing |
 | 📐 | spec-driven-development-with-claude |
 | 🎮 | claude-code-remote-control-workflow |
+| 🚀 | remote-control-spawn |
