@@ -1,6 +1,6 @@
 export const SITE = {
-  title: 'ただのエンジニアMの日記',
-  description: '業務/プライベートでの学び、発見、気づきなどを取り止めもなく描きます。',
+  title: 'ペンギンテックラボ',
+  description: '開発ツール・AI活用からライフハックまで、気になったことを試して記録するエンジニアブログ',
   url: 'https://masayan1126.github.io/senior-engineer-diary-blog',
   author: 'ただのエンジニア M.N',
   lang: 'ja',
